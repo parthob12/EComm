@@ -12,3 +12,5 @@ def add_to_cart(request, product_id):
     user = request.user
     cart, created = Cart.objects.get_or_create(user=user)
     cart_item, created = CartItem.objects.get_or_create(product=product, cart=cart)
+    if not created:
+        cart_item.quantity += 1
