@@ -14,3 +14,9 @@ def add_to_cart(request, product_id):
     cart_item, created = CartItem.objects.get_or_create(product=product, cart=cart)
     if not created:
         cart_item.quantity += 1
+        cart_item.save()
+    return redirect('product_list')
+
+def cart(request):
+    user = request.user
+    cart, created = Cart.objects.get_or_create(user=user)
