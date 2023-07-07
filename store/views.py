@@ -20,3 +20,5 @@ def add_to_cart(request, product_id):
 def cart(request):
     user = request.user
     cart, created = Cart.objects.get_or_create(user=user)
+    return render(request, 'store/cart.html', {'cart': cart})
+
