@@ -1,3 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="container">
+    <h1 class="my-4">Shopping Cart</h1>
+    <ul class="list-group">
+      {% for item in cart.cartitem_set.all %}
+        <li class="list-group-item">
+          {{ item.product.title }} - Quantity: {{ item.quantity }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+<!-- {% extends "base.html" %}
+
+{% block content %}
+  <h1>Shopping Cart</h1>
+  <ul>
+    {% for item in cart.cartitem_set.all %}
+      <li>
+        {{ item.product.title }} - Quantity: {{ item.quantity }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %} -->
